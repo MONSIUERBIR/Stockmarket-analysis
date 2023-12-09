@@ -51,12 +51,12 @@ def aintraday(stockname,stockperiod):
         itime = st.sidebar.select_slider("TIME INTERVAL", ["1min", "5min", "15min", "30min", "60min"])
         st.write("""your *TIME INTERVAL* is""", itime)
         st.write(""" # SMA VS CLOSING IF *ORANGE* LINE IS *GREATER* THAN *BLUE* *ITS RIGHT TIME TO INVEST*""")
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data_ts, meta_data_ts = ts.get_intraday(symbol=stockname, interval=itime, outputsize='full')
 
         period = 60
 
-        ti = TechIndicators(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ti = TechIndicators(key='yourapikey', output_format='pandas')
         data_ti, meta_data_ti = ti.get_sma(symbol=stockname, interval=itime,
                                            time_period=period, series_type='close')
 
@@ -75,12 +75,12 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "ANALYSIS BY SMA DAILY":
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data_ts, meta_data_ts = ts.get_daily(symbol=stockname, outputsize='full')
 
         period = 60
 
-        ti = TechIndicators(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ti = TechIndicators(key='yourapikey', output_format='pandas')
         data_ti, meta_data_ti = ti.get_sma(symbol=stockname,
                                                time_period=period, series_type='close')
 
@@ -103,7 +103,7 @@ def aintraday(stockname,stockperiod):
         st.write("""your *TIME INTERVAL* is""", itime)
         st.write("""# RSI AND SMA""")
         period = 60
-        ti = TechIndicators(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ti = TechIndicators(key='yourapikey', output_format='pandas')
 
         data_ti, meta_data_ti = ti.get_rsi(symbol=stockname, interval='1min',
                                            time_period=period, series_type='close')
@@ -136,7 +136,7 @@ def aintraday(stockname,stockperiod):
         itime = st.sidebar.select_slider("TIME INTERVAL", ["1min", "5min", "15min", "30min", "60min"])
         st.write("""your *TIME INTERVAL* is""", itime)
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data_ts = ts.get_intraday(symbol=stockname, interval=itime, outputsize='full')
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
@@ -160,7 +160,7 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "DAILY":
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data = ts.get_daily(symbol=stockname)
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
@@ -184,7 +184,7 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "DAILY ADJUSTED":
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data = ts.get_daily_adjusted(symbol=stockname)
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
@@ -210,7 +210,7 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "WEEKLY":
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data = ts.get_weekly(symbol=stockname)
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
@@ -234,7 +234,7 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "WEEKLY ADJUSTED":
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data = ts.get_weekly_adjusted(symbol=stockname)
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
@@ -260,7 +260,7 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "MONTHLY" :
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data = ts.get_monthly(symbol=stockname)
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
@@ -284,7 +284,7 @@ def aintraday(stockname,stockperiod):
 
     elif stockperiod == "MONTHLY ADJUSTED" :
 
-        ts = TimeSeries(key='5DQYU9RF9FUMJ3SD', output_format='pandas')
+        ts = TimeSeries(key='yourapikey', output_format='pandas')
         data, meta_data = ts.get_monthly_adjusted(symbol=stockname)
         st.sidebar.success(""" STOCK DATA!!!""")
         fig = go.Figure()
